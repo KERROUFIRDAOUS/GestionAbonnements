@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+  <meta charset="UTF-8">
+  <title>Abonnements d'un client</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">Liste d'aboonements du client</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>DATE D'ABONNEMENT</th>
+            <th>MONTANT</th>
+            <th>SOLDE</th>
+            <th>TYPE D'ABONNEMENT</th>
+            <th>CHARGER SOLDE</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="p:${abonnements}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.dateAbonnement}"></td>
+            <td th:text="${p.montant}"></td>
+            <td th:text="${p.solde}"></td>
+            <td th:text="${p.typeAbonnement}"></td>
+            <td>
+              <a class="btn btn-primary" th:href="@{/user/abonnements/{id}/form-charger-solde(id=${p.id})}">
+              Charger le solde
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Client</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+  <div class="col-md-6 offset-3">
+    <form method="post" th:action="@{save}">
+      <div>
+        <label>Email</label>
+        <input class="form-control" type="email" name="email" th:value="${client.email}">
+        <span class="text-danger" th:errors="${client.email}"></span>
+      </div>
+      <div>
+        <label>Nom</label>
+        <input class="form-control" type="text" name="nom" th:value="${client.nom}">
+        <span class="text-danger" th:errors="${client.nom}"></span>
+      </div>
+      <div>
+        <label>Username</label>
+        <input class="form-control" type="text" name="username" th:value="${client.username}">
+        <span class="text-danger" th:errors="${client.username}"></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

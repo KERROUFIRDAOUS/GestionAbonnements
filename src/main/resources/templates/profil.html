@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil du client</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">Profil du client</div>
+      <div class="card-body">
+        <img src="https://cdn.vectorstock.com/i/preview-1x/98/23/avatar-face-icon-female-social-profile-vector-40889823.jpg" alt="photo du client" class="img-fluid mb-3">
+        <h4 class="card-title">Nom du client: <span th:text="${client.nom}"></span></h4>
+        <p class="card-text">Adresse email: <span th:text="${client.email}"></span></p>
+        <p class="card-text">Username: <span th:text="${client.username}"></span></p>
+        <p>
+          <a class="btn btn-primary" th:href="@{/user/abonnements/client/{id}(id=${client.id})}">
+            Les abonnements
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
